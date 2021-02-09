@@ -1,63 +1,60 @@
 import React from 'react';
-import { graphql, Link, StaticQuery } from 'gatsby';
-import Menu from './Menu';
-import Hamburger from './Hamburger';
-import logo from '../../static/images/logo/logo.svg';
-import logoMobile from '../../static/images/logo/logo-mobile.svg';
-import MenuMobile from './MenuMobile';
+import {Link} from 'gatsby';
+import PropTypes from 'prop-types';
+import {useColorMode} from '@theme-ui/color-modes';
+import {DarkModeSwitch} from 'react-toggle-dark-mode';
+import {Box, Flex} from '@theme-ui/components';
 
-class Header extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      menuActive: false
-    };
-  }
+import theme from '../gatsby-plugin-theme-ui';
 
-  toggleMenu = menuActive => {
-    this.setState(prevState => ({
-      menuActive: !prevState.menuActive
-    }));
-  };
+const Header = ({siteTitle}) => {
+  const [colorMode, setColorMode] = useColorMode();
 
-  render() {
-    const config = this.props.data.configJson;
-    return (
-      <div className="header">
-        <div className="container">
-          <div className="logo">
-            <Link to="/">
-              <img height={config.logo.desktop_height} alt={config.logo.alt} src={config.logo.desktop} />
-            </Link>
-          </div>
-          <div className="logo-mobile">
-            <Link to="/">
-              <img height={config.logo.desktop_height} alt={config.logo.alt} src={config.logo.mobile} />
-            </Link>
-          </div>
-          <MenuMobile active={this.state.menuActive} />
-          <Menu />
-          <Hamburger toggleMenu={this.toggleMenu} />
-        </div>
-      </div>
-    );
-  }
-}
+  return (
+    <Box bg="primary">
+      <Flex
+        css={{
+          maxWidth: 1170,
+        }}
+        m="auto"
+        py={3}
+      >
+        <Box css={{
+          flex: 1,
+          maxWidth: 126,
+        }}
+        >
+          <Link to="/" title={siteTitle}>
+            Corina Topor
+          </Link>
+        </Box>
+        <Box css={{
+          flex: 1,
+          textAlign: 'right',
+          lineHeight: 0,
+        }}
+        >
+          <DarkModeSwitch
+            sunColor={theme.colors.modes.dark.accent}
+            moonColor={theme.colors.accent}
+            checked={colorMode === 'default'}
+            onChange={() => {
+              setColorMode(colorMode === 'default' ? 'dark' : 'default');
+            }}
+            size={42}
+          />
+        </Box>
+      </Flex>
+    </Box>
+  );
+};
 
-export default props => (
-  <StaticQuery
-    query={graphql`
-      query HeaderQuery {
-        configJson {
-          logo {
-            alt
-            desktop
-            mobile
-            desktop_height
-          }
-        }
-      }
-    `}
-    render={data => <Header data={data} />}
-  />
-);
+Header.propTypes = {
+  siteTitle: PropTypes.string,
+};
+
+Header.defaultProps = {
+  siteTitle: ``,
+};
+
+export default Header;

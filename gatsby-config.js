@@ -1,52 +1,83 @@
-const guid = process.env.NETLIFY_GOOGLE_ANALYTICS_ID;
-
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Serif Theme',
-    description: 'my theme'
+    title: `Postpartum Fitness Program - Corina Topor`,
+    description: 'I am Corina Topor, and I help women to reclaim their health after babies. So, they can connect '
+      + 'with their pre-baby selves. I create prenatal/postpartum programs that support women who are nursing, '
+      + 'diastasis recti, tearing and incontinence',
+    author: {
+      name: 'Corina Topor',
+      summary: '',
+    },
   },
   plugins: [
-    'gatsby-plugin-sass',
-    'gatsby-transformer-json',
-    'gatsby-transformer-remark',
-    'gatsby-plugin-react-helmet',
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-emotion`,
+    `gatsby-plugin-react-helmet`,
     {
+      // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/src/content`,
-        name: 'content'
-      }
+        name: 'uploads',
+        path: `${__dirname}/static/img`,
+      },
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/pages`,
-        name: 'pages'
-      }
+        name: `blog`,
+        path: `${__dirname}/src/pages/blog`,
+      },
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/data`,
-        name: 'data'
-      }
+        name: `images`,
+        path: `${__dirname}/src/img`,
+      },
     },
     {
-      resolve: 'gatsby-plugin-google-analytics',
+      resolve: 'gatsby-plugin-mdx',
       options: {
-        trackingId: guid || 'UA-XXX-1',
-        // Puts tracking script in the head instead of the body
-        head: false
-      }
-    },
-    {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [
-          'Playfair+Display:400,700'
+        extensions: ['.mdx', '.md'],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1035,
+              backgroundColor: 'transparent',
+              quality: 70,
+            },
+          },
         ],
-        display: 'swap'
-      }
-    }
-  ]
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `gatsby-starter-default`,
+        short_name: `corinatopor`,
+        start_url: `/`,
+        background_color: `#663399`,
+        theme_color: `#663399`,
+        display: `standalone`,
+        icon: `src/img/gatsby-icon.png`, // This path is relative to the root of the site.
+        crossOrigin: `use-credentials`,
+      },
+    },
+    `gatsby-plugin-theme-ui`,
+    {
+      resolve: '@lekoarts/gatsby-theme-styleguide',
+      options: {
+        // sets path for generated page
+        basePath: '/design-system',
+      },
+    },
+    {
+      resolve: `gatsby-plugin-netlify-cms`,
+      options: {
+        enableIdentityWidget: true,
+      },
+    },
+  ],
 };
