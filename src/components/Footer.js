@@ -1,6 +1,9 @@
 import React from 'react';
-import {Link} from 'gatsby';
+// import {Link} from 'gatsby';
 import {Flex, Box, Text} from '@theme-ui/components';
+import {
+  FaYoutube, FaTwitter, FaInstagram, FaLinkedin,
+} from 'react-icons/fa';
 
 const Footer = () => (
   <Flex
@@ -17,22 +20,22 @@ const Footer = () => (
       m="auto"
       p={5}
     >
+      <Text>
+        <FaYoutube />
+        <FaTwitter />
+        <FaInstagram />
+        <FaLinkedin />
+      </Text>
       <Text css={{
         color: '#cecece',
         lineHeight: 2,
       }}
       >
-        Copyright Pine Co Tech
+        ©
         {' '}
         {new Date().getFullYear()}
         {' '}
-        |
-        {' '}
-        <Link to="/contact">Contact</Link>
-        {' '}
-        |
-        {' '}
-        <Link to="/design-system">Design System</Link>
+        Built with Gatsby, designed by Tiamat Tech
       </Text>
     </Box>
   </Flex>

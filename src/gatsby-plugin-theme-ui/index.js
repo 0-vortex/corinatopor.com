@@ -32,8 +32,8 @@ const theme = {
     512,
   ],
   fonts: {
-    body: 'Esteban, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
-    heading: 'Montserrat, sans-serif',
+    body: 'Esteban, system-ui, sans-serif',
+    heading: 'Montserrat, system-ui, sans-serif',
     monospace: 'Menlo, monospace',
   },
   fontSizes: [
@@ -48,9 +48,9 @@ const theme = {
     96,
   ],
   fontWeights: {
-    body: 400,
-    heading: 700,
-    bold: 700,
+    body: 500,
+    heading: 800,
+    bold: 900,
   },
   lineHeights: {
     body: 1.5,
@@ -58,9 +58,9 @@ const theme = {
   },
   styles: {
     root: {
-      fontFamily: 'body',
-      lineHeight: 'body',
-      fontWeight: 'body',
+      fontFamily: 'heading',
+      lineHeight: 'heading',
+      fontWeight: 'heading',
     },
     h1: {
       color: 'text',
