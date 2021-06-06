@@ -12,7 +12,6 @@ module.exports = {
   plugins: [
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-emotion`,
     `gatsby-plugin-react-helmet`,
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
@@ -63,20 +62,6 @@ module.exports = {
         display: `standalone`,
         icon: `src/img/gatsby-icon.png`, // This path is relative to the root of the site.
         crossOrigin: `use-credentials`,
-      },
-    },
-    `gatsby-plugin-theme-ui`,
-    {
-      resolve: '@lekoarts/gatsby-theme-styleguide',
-      options: {
-        // sets path for generated page
-        basePath: '/design-system',
-      },
-    },
-    {
-      resolve: `gatsby-plugin-netlify-cms`,
-      options: {
-        enableIdentityWidget: true,
       },
     },
   ],

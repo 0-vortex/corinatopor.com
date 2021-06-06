@@ -4,7 +4,6 @@ module.exports = {
   },
   ignorePatterns: ['.cache/*', 'public/*'],
   plugins: [
-    '@emotion',
   ],
   extends: [
     'airbnb',
