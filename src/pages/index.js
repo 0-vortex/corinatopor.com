@@ -1,16 +1,15 @@
 import React from 'react';
 import {Link} from 'gatsby';
 
-import {Heading, Text} from '@theme-ui/components';
 import Seo from '../components/Seo';
 
 const IndexPage = () => (
   <React.Fragment>
-    <Seo title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <Heading>Welcome to Corina, the simplest way to start publishing with Gatsby.</Heading>
-    <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus praesent nibh suscipit nisl quis.</Text>
-    <Text>Tempus, nullam fermentum porttitor nisl, natoque pharetra.</Text>
-    <Text>Amet tincidunt nunc interdum et suspendisse elementum faucibus vitae.</Text>
+    <Seo title="Home" keywords={['gatsby', 'application', 'react']} />
+    <h1>Welcome to Corina, the simplest way to start publishing with Gatsby.</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus praesent nibh suscipit nisl quis.</p>
+    <p>Tempus, nullam fermentum porttitor nisl, natoque pharetra.</p>
+    <p>Amet tincidunt nunc interdum et suspendisse elementum faucibus vitae.</p>
     <Link to="/blog/">Go to experimental blog page</Link>
   </React.Fragment>
 );

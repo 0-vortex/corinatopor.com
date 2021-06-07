@@ -1,9 +1,6 @@
 import React from 'react';
 import {graphql, Link} from 'gatsby';
 import PropTypes from 'prop-types';
-import {
-  Card, Heading, Text,
-} from '@theme-ui/components';
 import Img from 'gatsby-image';
 import SocialShare from '../components/SocialShare';
 
@@ -16,15 +13,15 @@ const BlogPage = ({data, location}) => {
           title, author, image, tags,
         } = node.frontmatter;
         return (
-          <Card key={node.id}>
+          <div key={node.id}>
             <Img fluid={image.childImageSharp.fluid} />
-            <Heading as="h2">{title}</Heading>
-            <Text>{node.excerpt}</Text>
-            <Text>
+            <h2>{title}</h2>
+            <p>{node.excerpt}</p>
+            <p>
               Posting By
               {' '}
               {author}
-            </Text>
+            </p>
             <ul>
               {tags && tags.map(tag => (
                 <li>{tag}</li>
@@ -32,7 +29,7 @@ const BlogPage = ({data, location}) => {
             </ul>
             <SocialShare title={title} url={location.href} tags={tags} />
             <Link to={node.slug}>View Article</Link>
-          </Card>
+          </div>
         );
       })}
     </React.Fragment>

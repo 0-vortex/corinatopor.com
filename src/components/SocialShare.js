@@ -13,14 +13,13 @@ import {
   RedditShareButton,
   RedditIcon,
 } from 'react-share';
-import {Box} from '@theme-ui/components';
 import PropTypes from 'prop-types';
 
 const SocialShare = ({
   title, url, tags, twitterHandle,
 }) => (
   <React.Fragment>
-    <Box>
+    <div>
       <FacebookShareButton url={url}>
         <FacebookIcon size={40} round />
       </FacebookShareButton>
@@ -44,12 +43,12 @@ const SocialShare = ({
       <RedditShareButton url={url} title={title}>
         <RedditIcon size={40} round />
       </RedditShareButton>
-    </Box>
+    </div>
   </React.Fragment>
 );
 
 SocialShare.defaultProps = {
-  twitterHandle: `corinatopor`,
+  twitterHandle: 'corinatopor',
   tags: [],
 };
 

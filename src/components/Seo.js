@@ -38,20 +38,20 @@ function Seo({
       titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
       meta={[
         {
-          name: `description`,
+          name: 'description',
           content: metaDescription,
         },
         {
-          property: `og:title`,
+          property: 'og:title',
           content: title,
         },
         {
-          property: `og:description`,
+          property: 'og:description',
           content: metaDescription,
         },
         {
-          property: `og:type`,
-          content: `website`,
+          property: 'og:type',
+          content: 'website',
         },
       ].concat(meta)}
     />
@@ -59,9 +59,9 @@ function Seo({
 }
 
 Seo.defaultProps = {
-  lang: `en`,
+  lang: 'en',
   meta: [],
-  description: ``,
+  description: '',
 };
 
 Seo.propTypes = {

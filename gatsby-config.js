@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Postpartum Fitness Program - Corina Topor`,
+    title: 'Postpartum Fitness Program - Corina Topor',
     description: 'I am Corina Topor, and I help women to reclaim their health after babies. So, they can connect '
       + 'with their pre-baby selves. I create prenatal/postpartum programs that support women who are nursing, '
       + 'diastasis recti, tearing and incontinence',
@@ -10,9 +10,10 @@ module.exports = {
     },
   },
   plugins: [
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-react-helmet`,
+    'gatsby-plugin-sass',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-react-helmet',
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
@@ -22,16 +23,16 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `blog`,
+        name: 'blog',
         path: `${__dirname}/src/pages/blog`,
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `images`,
+        name: 'images',
         path: `${__dirname}/src/img`,
       },
     },
@@ -41,7 +42,7 @@ module.exports = {
         extensions: ['.mdx', '.md'],
         gatsbyRemarkPlugins: [
           {
-            resolve: `gatsby-remark-images`,
+            resolve: 'gatsby-remark-images',
             options: {
               maxWidth: 1035,
               backgroundColor: 'transparent',
@@ -52,16 +53,16 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `corinatopor`,
-        start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `standalone`,
-        icon: `src/img/gatsby-icon.png`, // This path is relative to the root of the site.
-        crossOrigin: `use-credentials`,
+        name: 'gatsby-starter-default',
+        short_name: 'corinatopor',
+        start_url: '/',
+        background_color: '#663399',
+        theme_color: '#663399',
+        display: 'standalone',
+        icon: 'src/img/gatsby-icon.png', // This path is relative to the root of the site.
+        crossOrigin: 'use-credentials',
       },
     },
   ],

@@ -3,12 +3,12 @@ module.exports = {
     __PATH_PREFIX__: true,
   },
   ignorePatterns: ['.cache/*', 'public/*'],
-  plugins: [
-  ],
+  plugins: [],
   extends: [
-    'airbnb',
+    'airbnb-typescript',
     'plugin:jsx-a11y/recommended',
     'plugin:mdx/recommended',
+    'plugin:react-hooks/recommended',
   ],
   env: {
     node: true,
@@ -16,11 +16,14 @@ module.exports = {
     mocha: true,
     browser: true,
   },
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       globalReturn: true,
       impliedStrict: true,
     },
+    project: 'package.json',
+    createDefaultProgram: true,
   },
   rules: {
     // airbnb scope overrides
@@ -37,6 +40,7 @@ module.exports = {
     quotes: [2, 'single', {allowTemplateLiterals: true}],
     'comma-dangle': [2, 'always-multiline'],
     'object-curly-spacing': [2, 'never'],
+    '@typescript-eslint/object-curly-spacing': [2, 'never'],
     'arrow-parens': [2, 'as-needed'],
     'linebreak-style': 0,
     'array-bracket-spacing': [2, 'never'],
